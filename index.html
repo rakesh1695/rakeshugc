@@ -444,167 +444,6 @@
             transform: translateY(-2px);
         }
 
-        /* Reviews Section */
-        .reviews-section {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-
-        .reviews-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-top: 40px;
-        }
-
-        .review-form-box {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .review-form-box h3 {
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 30px;
-        }
-
-        .rating-selector {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .star-btn {
-            font-size: 32px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s;
-            color: #ddd;
-        }
-
-        .star-btn:hover,
-        .star-btn.active {
-            color: #ffc107;
-            transform: scale(1.2);
-        }
-
-        .rating-text {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 20px;
-            min-height: 20px;
-        }
-
-        .reviews-display-box {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .reviews-display-box h3 {
-            font-size: 24px;
-            color: var(--text);
-            margin-bottom: 30px;
-        }
-
-        .reviews-list {
-            max-height: 600px;
-            overflow-y: auto;
-        }
-
-        .review-item {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .reviewer-name {
-            font-weight: 700;
-            color: var(--text);
-            font-size: 16px;
-        }
-
-        .review-rating {
-            color: #ffc107;
-            font-size: 14px;
-        }
-
-        .review-date {
-            font-size: 12px;
-            color: #94a3b8;
-            margin-top: 5px;
-        }
-
-        .review-text {
-            color: #475569;
-            line-height: 1.6;
-        }
-
-        .no-reviews {
-            text-align: center;
-            padding: 40px 20px;
-            color: #94a3b8;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 15px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
-        }
-
-        .status-message {
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 6px;
-            text-align: center;
-            font-weight: 600;
-            display: none;
-        }
-
-        .status-message.success {
-            background: #d1fae5;
-            color: #065f46;
-            display: block;
-        }
-
-        .status-message.error {
-            background: #fee2e2;
-            color: #991b1b;
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .reviews-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* Footer */
         footer {
             background: var(--dark);
@@ -902,55 +741,37 @@
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews" class="reviews-section">
-        <h2 class="section-title">⭐ Client Reviews</h2>
-        <div class="reviews-container">
-            <!-- Review Form -->
-            <div class="review-form-box">
-                <h3>Share Your Experience</h3>
-                <form id="reviewForm">
-                    <div class="form-group">
-                        <label for="reviewName">Your Name</label>
-                        <input type="text" id="reviewName" placeholder="Enter your name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="reviewEmail">Email (Optional)</label>
-                        <input type="email" id="reviewEmail" placeholder="Enter your email">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Rate Your Experience</label>
-                        <div class="rating-selector">
-                            <button type="button" class="star-btn" onclick="setReviewRating(1)">★</button>
-                            <button type="button" class="star-btn" onclick="setReviewRating(2)">★</button>
-                            <button type="button" class="star-btn" onclick="setReviewRating(3)">★</button>
-                            <button type="button" class="star-btn" onclick="setReviewRating(4)">★</button>
-                            <button type="button" class="star-btn" onclick="setReviewRating(5)">★</button>
-                        </div>
-                        <div class="rating-text" id="ratingText"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="reviewText">Your Review</label>
-                        <textarea id="reviewText" placeholder="Share your experience with the service..." rows="4" required></textarea>
-                    </div>
-                    
-                    <button type="button" class="submit-btn" onclick="submitReview()">Submit Review</button>
-                    <div class="status-message" id="reviewStatus"></div>
-                </form>
-            </div>
-            
-            <!-- Reviews Display -->
-            <div class="reviews-display-box">
-                <h3>Recent Reviews</h3>
-                <div class="reviews-list" id="reviewsList">
-                    <div class="no-reviews">No reviews yet. Be the first to share your feedback!</div>
-                </div>
-            </div>
+
+    <!-- Rakesh UGC Academy -->
+    <section id="academy" class="services" style="background:#0f172a;color:white;">
+      <div class="services-container">
+        <h2 class="section-title" style="color:white;">Rakesh UGC Academy</h2>
+        <div class="service-card" style="max-width:700px;margin:auto;">
+          <h3>UGC Ads & Short-Form Video Course</h3>
+          <p>Learn practical UGC ad creation, hooks, scripting, editing, creative strategy and client-ready delivery.</p>
+          <div style="font-size:28px;font-weight:800;margin:15px 0;">₹2,499 + applicable GST</div>
+          <button onclick="openAcademy()" style="width:100%;background:linear-gradient(135deg,#7c3aed,#2563eb);color:white;padding:12px;border:0;border-radius:8px;font-weight:700;cursor:pointer;">Student Login / Enroll</button>
         </div>
+      </div>
     </section>
+    <div id="academyModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeAcademy()">&times;</span>
+        <h2>Rakesh UGC Academy</h2>
+        <div id="academyMessage"></div>
+        <input id="acadName" placeholder="Full name" style="width:100%;padding:12px;margin:6px 0;">
+        <input id="acadEmail" type="email" placeholder="Email" style="width:100%;padding:12px;margin:6px 0;">
+        <input id="acadPassword" type="password" placeholder="Password (8+ characters)" style="width:100%;padding:12px;margin:6px 0;">
+        <input id="acadReferral" placeholder="Referral code (optional)" style="width:100%;padding:12px;margin:6px 0;">
+        <div style="display:flex;gap:8px;margin-top:10px;">
+          <button onclick="academyRegister()" class="form-submit">Create Account</button>
+          <button onclick="academyLogin()" class="form-submit">Login</button>
+        </div>
+        <button onclick="buyAcademyCourse()" class="form-submit" style="margin-top:10px;">Buy Course</button>
+        <p style="margin-top:12px;font-size:13px;">Referral partners earn commission only on genuine eligible course sales. No recruitment commission or guaranteed income.</p>
+        <div id="academyDashboard" style="margin-top:15px;"></div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -1135,11 +956,8 @@
         // Razorpay Payment Function
         function initiatePayment(amount, description) {
             const options = {
-    key: 'rzp_live_TYjSid4VAbTyo8',
-    amount: amount * 100,
-
-        
-               
+                key: 'rzp_live_YOUR_KEY_HERE', // Replace with your Razorpay key
+                amount: amount * 100, // Amount in paise
                 currency: 'INR',
                 name: 'Rakesh Kumar - UGC Creator',
                 description: description,
@@ -1185,113 +1003,31 @@
             initiatePayment(7500, 'Simple Website - $100-200');
         }
 
-        // ========== REVIEWS FUNCTIONALITY ==========
-        let currentReviewRating = 0;
-        const reviewRatingTexts = {
-            1: '😞 Poor Experience',
-            2: '😕 Not So Good',
-            3: '😐 Average',
-            4: '😊 Good Experience',
-            5: '😍 Excellent Work!'
-        };
-
-        // Load reviews from localStorage on page load
-        let clientReviews = JSON.parse(localStorage.getItem('rakeshugcReviews')) || [];
-
-        function setReviewRating(rating) {
-            currentReviewRating = rating;
-            const stars = document.querySelectorAll('#reviewForm .star-btn');
-            stars.forEach((star, index) => {
-                if (index < rating) {
-                    star.classList.add('active');
-                } else {
-                    star.classList.remove('active');
-                }
-            });
-            document.getElementById('ratingText').textContent = reviewRatingTexts[rating];
+        // Academy API — replace with your deployed Cloudflare Worker URL.
+        const ACADEMY_API = 'https://YOUR-WORKER-DOMAIN';
+        function academyToken(){ return localStorage.getItem('rakeshAcademyToken') || ''; }
+        function academyHeaders(){ return {'Content-Type':'application/json','Authorization':'Bearer '+academyToken()}; }
+        function openAcademy(){ document.getElementById('academyModal').style.display='block'; const r=new URLSearchParams(location.search).get('ref'); if(r) document.getElementById('acadReferral').value=r; }
+        function closeAcademy(){ document.getElementById('academyModal').style.display='none'; }
+        async function academyRegister(){
+          const body={name:acadName.value,email:acadEmail.value,password:acadPassword.value};
+          const res=await fetch(ACADEMY_API+'/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({x:body})}); const d=await res.json();
+          if(!res.ok){academyMessage.textContent=d.error||'Registration failed';return;} localStorage.setItem('rakeshAcademyToken',d.token); academyMessage.textContent='Account created. Your referral code: '+d.user.referralCode; loadAcademyDashboard();
         }
-
-        function submitReview() {
-            const name = document.getElementById('reviewName').value;
-            const email = document.getElementById('reviewEmail').value;
-            const text = document.getElementById('reviewText').value;
-            const statusDiv = document.getElementById('reviewStatus');
-
-            if (!name || !text || currentReviewRating === 0) {
-                statusDiv.textContent = '❌ Please fill all fields and select a rating';
-                statusDiv.className = 'status-message error';
-                return;
-            }
-
-            const review = {
-                id: Date.now(),
-                name: name,
-                email: email,
-                rating: currentReviewRating,
-                text: text,
-                date: new Date().toLocaleDateString('en-IN')
-            };
-
-            clientReviews.unshift(review);
-            localStorage.setItem('rakeshugcReviews', JSON.stringify(clientReviews));
-
-            statusDiv.textContent = '✅ Thank you! Your review has been posted!';
-            statusDiv.className = 'status-message success';
-
-            // Reset form
-            document.getElementById('reviewName').value = '';
-            document.getElementById('reviewEmail').value = '';
-            document.getElementById('reviewText').value = '';
-            currentReviewRating = 0;
-            document.querySelectorAll('#reviewForm .star-btn').forEach(star => star.classList.remove('active'));
-            document.getElementById('ratingText').textContent = '';
-
-            // Refresh reviews display
-            displayReviews();
-
-            // Clear success message after 3 seconds
-            setTimeout(() => {
-                statusDiv.className = 'status-message';
-            }, 3000);
+        async function academyLogin(){
+          const res=await fetch(ACADEMY_API+'/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:acadEmail.value,password:acadPassword.value})}); const d=await res.json();
+          if(!res.ok){academyMessage.textContent=d.error||'Login failed';return;} localStorage.setItem('rakeshAcademyToken',d.token); academyMessage.textContent='Logged in.'; loadAcademyDashboard();
         }
-
-        function displayReviews() {
-            const reviewsList = document.getElementById('reviewsList');
-
-            if (clientReviews.length === 0) {
-                reviewsList.innerHTML = '<div class="no-reviews">No reviews yet. Be the first to share your feedback!</div>';
-                return;
-            }
-
-            reviewsList.innerHTML = clientReviews.map(review => `
-                <div class="review-item">
-                    <div class="review-header">
-                        <div>
-                            <div class="reviewer-name">${escapeHtmlReview(review.name)}</div>
-                            <div class="review-date">${review.date}</div>
-                        </div>
-                        <div class="review-rating">${'★'.repeat(review.rating)}</div>
-                    </div>
-                    <div class="review-text">${escapeHtmlReview(review.text)}</div>
-                </div>
-            `).join('');
+        async function loadAcademyDashboard(){
+          if(!academyToken())return; const res=await fetch(ACADEMY_API+'/api/me',{headers:academyHeaders()}); const d=await res.json(); if(!res.ok)return;
+          academyDashboard.innerHTML='<strong>Referral Code:</strong> '+d.user.referral_code+'<br><strong>Gross commission:</strong> ₹'+((d.stats.gross||0)/100).toFixed(2)+'<br><strong>Net commission:</strong> ₹'+((d.stats.net||0)/100).toFixed(2);
         }
-
-        function escapeHtmlReview(text) {
-            const map = {
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#039;'
-            };
-            return text.replace(/[&<>"']/g, m => map[m]);
+        async function buyAcademyCourse(){
+          if(!academyToken()){academyMessage.textContent='Please create an account or login first.';return;}
+          const referralCode=acadReferral.value.trim(); const res=await fetch(ACADEMY_API+'/api/course/order',{method:'POST',headers:academyHeaders(),body:JSON.stringify({referralCode})}); const d=await res.json();
+          if(!res.ok){academyMessage.textContent=d.error||'Could not create order';return;}
+          const rzp=new Razorpay({key:d.keyId,amount:d.amount,currency:d.currency,name:'Rakesh UGC Academy',description:'UGC Ads & Short-Form Video Course',order_id:d.orderId,handler:async function(response){const v=await fetch(ACADEMY_API+'/api/payment/verify',{method:'POST',headers:academyHeaders(),body:JSON.stringify(response)});const vd=await v.json();academyMessage.textContent=vd.ok?'Payment verified successfully.':'Verification failed: '+(vd.error||'Unknown error');}}); rzp.open();
         }
-
-        // Initialize reviews on page load
-        window.addEventListener('load', function() {
-            displayReviews();
-        });
     </script>
 </body>
 </html>
