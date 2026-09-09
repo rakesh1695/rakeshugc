@@ -1,0 +1,14 @@
+name = "rakesh-ugc-academy-api"
+main = "src/index.js"
+compatibility_date = "2026-09-08"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "rakesh-ugc-academy"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+[vars]
+COURSE_AMOUNT_PAISE = "294882"
+COMMISSION_BPS = "4000"
+# Replace with your deployed GitHub Pages origin.
+FRONTEND_ORIGIN = "https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPO"
